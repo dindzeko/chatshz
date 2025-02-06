@@ -9,7 +9,7 @@ def toggle_description():
     st.session_state.show_description = not st.session_state.show_description
 
 # Menentukan teks tombol berdasarkan state
-button_text = "▼ Klik untuk membuka penjelasan" if not st.session_state.show_description else "▲ Klik untuk kembali ke judul"
+button_text = "▼ Klik untuk membuka penjelasan" if not st.session_state.show_description else "▲ Klik untuk menutup penjelasan"
 
 # Widget tombol dengan teks dinamis
 st.button(button_text, on_click=toggle_description)
@@ -21,5 +21,3 @@ if st.session_state.show_description:
     Ini adalah deskripsi yang muncul ketika tombol diklik.  
     Klik tombol lagi untuk menyembunyikan deskripsi ini.
     """)
-else:
-    st.write("**Judul Utama**")
