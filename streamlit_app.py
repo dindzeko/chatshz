@@ -100,6 +100,7 @@ def main_page():
 page_names_to_funcs = {
     "🏠 Main Page": main_page,
     "📋 Sample": sample,
+    "📊 Depresiasi": depresiasi,
     "🔍 Fuzzy Searching": fuzzysearch,
     "🛠️ Query Builder": querybuilder,
 }
