@@ -99,7 +99,7 @@ def main_page():
 # Navigasi
 page_names_to_funcs = {
     "🏠 Main Page": main_page,
-    "📊 Depresiasi": penyusutan,
+    "📊 Penyusutan": penyusutan,
     "📋 Sample": sample,
     "🔍 Fuzzy Searching": fuzzysearch,
     "🛠️ Query Builder": querybuilder,
