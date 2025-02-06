@@ -1,4 +1,3 @@
-# streamlit_app.py
 import streamlit as st
 
 # Fungsi untuk menambahkan CSS ke aplikasi Streamlit
@@ -16,97 +15,112 @@ css_animation = """
     from { opacity: 0; }
     to { opacity: 1; }
 }
+
 /* Gaya untuk sidebar */
 .sidebar .sidebar-content {
     transition: margin-left 0.3s ease-in-out;
 }
+
+/* Warna profesional */
+body {
+    background-color: #f4f6f9;
+    color: #2c3e50;
+}
+h1, h2, h3 {
+    color: #1a5276;
+}
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.cta-button {
+    background-color: #1a5276;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+.cta-button:hover {
+    background-color: #133b5c;
+}
 </style>
 """
-
 # Tambahkan CSS ke aplikasi
 add_css(css_animation)
 
 # Halaman utama
 def main_page():
     st.markdown('<div class="fade-in">', unsafe_allow_html=True)
-    st.title("Main Page")
-    st.write("Welcome")
-    st.markdown('</div>', unsafe_allow_html=True)
-
-# Halaman Depresiasi
-def depresiasi():
-    st.markdown('<div class="fade-in">', unsafe_allow_html=True)
-    st.title("Depresiasi")
     
-    sub_page = st.sidebar.selectbox("Pilih jenis depresiasi", ["Tahunan", "Semesteran"])
+    # Header Profesional
+    st.markdown("""
+    <div style="text-align: center; margin-bottom: 40px;">
+        <h1 style="font-size: 36px; color: #1a5276;">Streamlining Your Auditing Process</h1>
+        <p style="font-size: 18px; color: #5d6d7e;">Efficient tools for modern auditors.</p>
+    </div>
+    """, unsafe_allow_html=True)
     
-    if sub_page == "Tahunan":
-        from page.susuttahunan import app as susuttahunan_app
-        susuttahunan_app()
-    elif sub_page == "Semesteran":
-        from page.susutsemester import app as susutsemester_app
-        susutsemester_app()
+    # Layout Kartu untuk Fitur Utama
+    col1, col2, col3 = st.columns(3)
     
-    st.markdown('</div>', unsafe_allow_html=True)
-
-# Halaman Sample
-def sample():
-    st.markdown('<div class="fade-in">', unsafe_allow_html=True)
-    st.title("Sample")
+    with col1:
+        st.markdown("""
+        <div class="card">
+            <h3>Create New Audit</h3>
+            <p>Start a new audit process with guided steps.</p>
+            <button class="cta-button">Create</button>
+        </div>
+        """, unsafe_allow_html=True)
     
-    # Sub-halaman untuk Sample
-    sub_page = st.sidebar.selectbox("Pilih sub-halaman", ["AHP", "MUS", "Benford Law"])
+    with col2:
+        st.markdown("""
+        <div class="card">
+            <h3>View Reports</h3>
+            <p>Access and review completed audit reports.</p>
+            <button class="cta-button">View</button>
+        </div>
+        """, unsafe_allow_html=True)
     
-    # Navigasi antar halaman
-    if sub_page == "AHP":
-        from page.ahp import app as ahp_app
-        ahp_app()
-    elif sub_page == "MUS":
-        from page.mus import app as mus_app
-        mus_app()
-    elif sub_page == "Benford Law":
-        from page.benfords import app as benfords_app
-        benfords_app()
-            
-    st.markdown('</div>', unsafe_allow_html=True)
-
-# Halaman Fuzzy Searching
-def fuzzysearch():
-    st.markdown('<div class="fade-in">', unsafe_allow_html=True)
-    st.title("Search")
-    st.write("Bentuk Data String")
-    st.markdown('</div>', unsafe_allow_html=True)
-    from page.fuzzysearch import app as fuzzysearch_app
-    fuzzysearch_app()
-
-# Halaman Query Builder
-def querybuilder():
-    st.markdown('<div class="fade-in">', unsafe_allow_html=True)
-    st.title("Query Builder")
-    st.write("Halaman untuk Query Builder.")
-    st.markdown('</div>', unsafe_allow_html=True)
-    from page.querybuilder import app as querybuilder_app
-    querybuilder_app()
+    with col3:
+        st.markdown("""
+        <div class="card">
+            <h3>Analyze Data</h3>
+            <p>Perform data analysis for audit insights.</p>
+            <button class="cta-button">Analyze</button>
+        </div>
+        """, unsafe_allow_html=True)
     
-# Halaman AHP (sub-halaman dari Sample)
-def ahp():
-    st.markdown('<div class="fade-in">', unsafe_allow_html=True)
-    st.title("Analytic Hierarchy Process (AHP)")
-    st.write("Halaman untuk metode Analytic Hierarchy Process (AHP).")
-    st.markdown('</div>', unsafe_allow_html=True)
-
-# Halaman MUS (sub-halaman dari Sample)
-def mus():
-    st.markdown('<div class="fade-in">', unsafe_allow_html=True)
-    st.title("Monetary Unit Sampling (MUS)")
-    st.write("Halaman untuk metode Monetary Unit Sampling (MUS).")
-    st.markdown('</div>', unsafe_allow_html=True)
-
-# Halaman Benford Law (sub-halaman dari Sample)
-def benford_law():
-    st.markdown('<div class="fade-in">', unsafe_allow_html=True)
-    st.title("Benford's Law")
-    st.write("Halaman untuk analisis menggunakan Benford's Law.")
+    # Dashboard Ringkasan
+    st.markdown("""
+    <h2 style="margin-top: 40px;">Audit Overview</h2>
+    <p>Here’s a quick summary of your recent audits:</p>
+    """, unsafe_allow_html=True)
+    
+    # Statistik Penting
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        st.metric(label="Total Audits", value="45")
+    
+    with col2:
+        st.metric(label="Completed", value="30")
+    
+    with col3:
+        st.metric(label="Pending", value="15")
+    
+    # Grafik Indikator Kinerja
+    st.markdown("""
+    <h3 style="margin-top: 40px;">Audit Progress</h3>
+    """, unsafe_allow_html=True)
+    progress_data = {"Completed": 30, "Pending": 15}
+    st.bar_chart(progress_data)
+    
     st.markdown('</div>', unsafe_allow_html=True)
 
 # Navigasi
