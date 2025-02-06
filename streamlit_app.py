@@ -1,10 +1,5 @@
+# streamlit_app.py
 import streamlit as st
-
-# Impor fungsi dari file lain
-from page.depresiasi import depresiasi
-from page.sample import sample
-from page.fuzzysearch import fuzzysearch
-from page.querybuilder import querybuilder
 
 # Fungsi untuk menambahkan CSS ke aplikasi Streamlit
 def add_css(css):
@@ -21,13 +16,13 @@ css_animation = """
     from { opacity: 0; }
     to { opacity: 1; }
 }
-
 /* Gaya untuk sidebar */
 .sidebar .sidebar-content {
     transition: margin-left 0.3s ease-in-out;
 }
 </style>
 """
+
 # Tambahkan CSS ke aplikasi
 add_css(css_animation)
 
@@ -36,6 +31,68 @@ def main_page():
     st.markdown('<div class="fade-in">', unsafe_allow_html=True)
     st.title("Main Page")
     st.write("Welcome")
+    st.markdown('</div>', unsafe_allow_html=True)
+
+# Halaman Depresiasi
+def depresiasi():
+    st.markdown('<div class="fade-in">', unsafe_allow_html=True)
+    st.title("Depresiasi")
+    
+    sub_page = st.sidebar.selectbox("Pilih jenis depresiasi", ["Tahunan", "Semesteran"])
+    
+    if sub_page == "Tahunan":
+    elif sub_page == "Semesteran":
+    
+    st.markdown('</div>', unsafe_allow_html=True)
+
+# Halaman Sample
+def sample():
+    st.markdown('<div class="fade-in">', unsafe_allow_html=True)
+    st.title("Sample")
+    
+    # Sub-halaman untuk Sample
+    sub_page = st.sidebar.selectbox("Pilih sub-halaman", ["AHP", "MUS", "Benford Law"])
+    
+    # Navigasi antar halaman
+    if sub_page == "AHP":
+    elif sub_page == "MUS":
+    elif sub_page == "Benford Law":
+            
+    st.markdown('</div>', unsafe_allow_html=True)
+
+# Halaman Fuzzy Searching
+def fuzzysearch():
+    st.markdown('<div class="fade-in">', unsafe_allow_html=True)
+    st.title("Search")
+    st.write("Bentuk Data String")
+    st.markdown('</div>', unsafe_allow_html=True)
+
+# Halaman Query Builder
+def querybuilder():
+    st.markdown('<div class="fade-in">', unsafe_allow_html=True)
+    st.title("Query Builder")
+    st.write("Halaman untuk Query Builder.")
+    st.markdown('</div>', unsafe_allow_html=True)
+    
+# Halaman AHP (sub-halaman dari Sample)
+def ahp():
+    st.markdown('<div class="fade-in">', unsafe_allow_html=True)
+    st.title("Analytic Hierarchy Process (AHP)")
+    st.write("Halaman untuk metode Analytic Hierarchy Process (AHP).")
+    st.markdown('</div>', unsafe_allow_html=True)
+
+# Halaman MUS (sub-halaman dari Sample)
+def mus():
+    st.markdown('<div class="fade-in">', unsafe_allow_html=True)
+    st.title("Monetary Unit Sampling (MUS)")
+    st.write("Halaman untuk metode Monetary Unit Sampling (MUS).")
+    st.markdown('</div>', unsafe_allow_html=True)
+
+# Halaman Benford Law (sub-halaman dari Sample)
+def benford_law():
+    st.markdown('<div class="fade-in">', unsafe_allow_html=True)
+    st.title("Benford's Law")
+    st.write("Halaman untuk analisis menggunakan Benford's Law.")
     st.markdown('</div>', unsafe_allow_html=True)
 
 # Navigasi
