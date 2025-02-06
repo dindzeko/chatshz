@@ -22,7 +22,6 @@ css_animation = """
 }
 </style>
 """
-
 # Tambahkan CSS ke aplikasi
 add_css(css_animation)
 
@@ -41,7 +40,9 @@ def depresiasi():
     sub_page = st.sidebar.selectbox("Pilih jenis depresiasi", ["Tahunan", "Semesteran"])
     
     if sub_page == "Tahunan":
+        st.write("Halaman untuk depresiasi tahunan.")
     elif sub_page == "Semesteran":
+        st.write("Halaman untuk depresiasi semesteran.")
     
     st.markdown('</div>', unsafe_allow_html=True)
 
@@ -55,8 +56,11 @@ def sample():
     
     # Navigasi antar halaman
     if sub_page == "AHP":
+        ahp()
     elif sub_page == "MUS":
+        mus()
     elif sub_page == "Benford Law":
+        benford_law()
             
     st.markdown('</div>', unsafe_allow_html=True)
 
